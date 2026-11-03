@@ -14,6 +14,7 @@ be publicly reachable.
 | Path | What it is | License |
 |---|---|---|
 | `models/yamnet/model.onnx` | YAMNet audio-event classifier, converted from the official TensorFlow Hub model to ONNX. Takes a 1-D 16 kHz mono waveform and returns 521 AudioSet class scores per ~0.48 s frame. Zerds uses it to mark laughter, applause, cheering, crying, coughs and sneezes on the timeline. | Apache-2.0 — see [`models/yamnet/LICENSE`](models/yamnet/LICENSE) and [`models/yamnet/NOTICE`](models/yamnet/NOTICE) |
+| Release [`nv-diarization-3-v1`](https://github.com/uhstray-io/zerds-public/releases/tag/nv-diarization-3-v1) (optional) | NV Diarization 3, the int8 ONNX speaker-diarization model (graph `model_quantized.onnx` plus weights `model_quantized.onnx_data`, about 120 MB). An optional second source for networks that block the upstream host; Zerds downloads the upstream copy first. Too large for git, so it is a release asset. | OpenMDW-1.1, see [`models/nv-diarization-3/LICENSE`](models/nv-diarization-3/LICENSE) and [`models/nv-diarization-3/NOTICE`](models/nv-diarization-3/NOTICE) |
 
 ## Integrity
 
@@ -26,6 +27,8 @@ Current digests:
 
 ```
 9a6aef46391df10a4ff804ea196266855a532a200ec13894024da24e16aaf7b1  models/yamnet/model.onnx
+fff7d18c7439c9fdc1c6c4dfec924cb42d3344264ca879780dfaf7ee886e6c1e  model_quantized.onnx       (release nv-diarization-3-v1)
+002d7483e1c865c35c82220fdb378f185ff213c6d35922b38ae421c8ec72c338  model_quantized.onnx_data  (release nv-diarization-3-v1)
 ```
 
 Verify locally with:
