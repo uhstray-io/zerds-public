@@ -5,9 +5,11 @@ runtime. This repository exists **only** because the main Zerds repository is
 private: GitHub release assets inherit their repository's visibility, so an app
 running on a user's machine — an anonymous client — cannot fetch them.
 
-Nothing proprietary lives here. Everything in this repository is either an
-open-source model redistributed under its own license, or a file Zerds needs to
-be publicly reachable.
+Everything in this repository is a file Zerds needs to be publicly reachable.
+Most of it is an open-source model redistributed under its own license. The
+exception is `models/hyper-tuned/`: those adapters are Uhstray's own, and
+being downloadable here does not make them open source. Each path has its own
+license, listed below.
 
 ## Contents
 
@@ -15,6 +17,7 @@ be publicly reachable.
 |---|---|---|
 | `models/yamnet/model.onnx` | YAMNet audio-event classifier, converted from the official TensorFlow Hub model to ONNX. Takes a 1-D 16 kHz mono waveform and returns 521 AudioSet class scores per ~0.48 s frame. Zerds uses it to mark laughter, applause, cheering, crying, coughs and sneezes on the timeline. | Apache-2.0 — see [`models/yamnet/LICENSE`](models/yamnet/LICENSE) and [`models/yamnet/NOTICE`](models/yamnet/NOTICE) |
 | Release [`nv-diarization-3-v1`](https://github.com/uhstray-io/zerds-public/releases/tag/nv-diarization-3-v1) (optional) | NV Diarization 3, the int8 ONNX speaker-diarization model (graph `model_quantized.onnx` plus weights `model_quantized.onnx_data`, about 120 MB). An optional second source for networks that block the upstream host; Zerds downloads the upstream copy first. Too large for git, so it is a release asset. | OpenMDW-1.1, see [`models/nv-diarization-3/LICENSE`](models/nv-diarization-3/LICENSE) and [`models/nv-diarization-3/NOTICE`](models/nv-diarization-3/NOTICE) |
+| [`models/hyper-tuned/`](models/hyper-tuned/README.md) and release [`hyper-tuned-v1.0.0`](https://github.com/uhstray-io/zerds-public/releases/tag/hyper-tuned-v1.0.0) | The Hyper Tuned adapters: small LoRA files Zerds loads onto its on-device language models for transcript cleanup, meeting summary and dictation. The manifest, its status file and a card for each adapter are in the tree; the adapter files (10 to 50 MB each) are release assets. | Proprietary, Uhstray's own: use only in applications owned and distributed by Uhstray. See [`models/hyper-tuned/LICENSE`](models/hyper-tuned/LICENSE) and [`models/hyper-tuned/NOTICE`](models/hyper-tuned/NOTICE) |
 
 ## Integrity
 
@@ -30,6 +33,10 @@ Current digests:
 fff7d18c7439c9fdc1c6c4dfec924cb42d3344264ca879780dfaf7ee886e6c1e  model_quantized.onnx       (release nv-diarization-3-v1)
 002d7483e1c865c35c82220fdb378f185ff213c6d35922b38ae421c8ec72c338  model_quantized.onnx_data  (release nv-diarization-3-v1)
 ```
+
+The Hyper Tuned adapters are pinned differently: each file's digest is in
+[`models/hyper-tuned/manifest.json`](models/hyper-tuned/manifest.json), and
+the digest of that manifest is in `models/hyper-tuned/latest.json`.
 
 Verify locally with:
 
