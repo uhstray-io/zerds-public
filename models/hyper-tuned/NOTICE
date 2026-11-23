@@ -1,0 +1,31 @@
+# Notices for the Hyper Tuned adapters
+
+## Training data
+
+The adapters were trained in part on text derived from two public research
+corpora of recorded meetings. The transcripts were processed (cut into turns,
+cleaned and paired with target text) to make training examples. No audio and
+no transcript is included in the adapter files.
+
+- **AMI Meeting Corpus**, by the AMI project. Released under the Creative
+  Commons Attribution 4.0 International License (CC BY 4.0),
+  https://creativecommons.org/licenses/by/4.0/. Source:
+  https://groups.inf.ed.ac.uk/ami/corpus/. Changes were made.
+- **ICSI Meeting Corpus** (transcripts), by the International Computer Science
+  Institute. Released under CC BY 4.0,
+  https://creativecommons.org/licenses/by/4.0/. Source:
+  https://groups.inf.ed.ac.uk/ami/icsi/. Changes were made.
+
+The makers of the two corpora do not endorse Uhstray, Zerds or these adapters.
+
+## Base models
+
+The adapters contain no base model weights. Each one is loaded onto a base
+model distributed by its own authors under the Apache License 2.0:
+
+- Qwen3 0.6B and Qwen3 1.7B, by Alibaba Cloud (Qwen team).
+- MiniCPM5-2B, by OpenBMB.
+
+## Tools
+
+The adapter files were converted to GGUF with llama.cpp (MIT License).

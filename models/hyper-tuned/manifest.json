@@ -1,0 +1,823 @@
+{
+ "schema_version": 1,
+ "name": "zerds-hyper-tuned",
+ "repository": "uhstray-io/zerds-public",
+ "path": "models/hyper-tuned",
+ "adapters": [
+  {
+   "name": "qwen3-0.6b-light",
+   "task": "light",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-0.6b-light-1.0.0.gguf",
+    "source_name": "qwen3-06b-c1-r8.gguf",
+    "sha256": "c2b4ba997080fcf1b0ed8f3af9297f32b8d7ff7632ae9d248283e458f5f0ebdc",
+    "bytes": 10119936,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-0.6b-light-1.0.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-0.6b",
+    "hf": "Qwen/Qwen3-0.6B",
+    "file": "Qwen3-0.6B-Q4_K_M.gguf",
+    "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
+    "bytes": 396705472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 8,
+    "lora_alpha": 16.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "883d2b765860d63b8af296c6183f0b564de8828541ad9529dcf9f7e18d4d9c7e",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "c1-edits",
+    "training_set_sha256": "a12f50c7e68c047947300274dfd4e835cd755cb4aa13e42d64e844741fd8d77f",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-06b-c1-r8",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-22T12:34:58",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 3.0,
+     "rank": 8.0,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "epochs=3": true,
+     "iters": 1059,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "keyword gate, 1,479 examples, bar 98% (finetune/keygate.py), and the 8 bench meetings, run 70",
+    "passed": true,
+    "scores": {
+     "keygate_examples_all_keywords": 0.999,
+     "keywords_kept": 0.9998,
+     "keygate_length_ratio": 0.91,
+     "meetings_key_moments": 1.0,
+     "meetings_facts": "0.99-1.00",
+     "meetings_length_ratio": "0.85-0.94"
+    },
+    "measured": "2026-11-22",
+    "result_file": "bench/results/keygate-win-gpu-qwen3-0.6b+c1r8.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-1.7b-light",
+   "task": "light",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-1.7b-light-1.0.0.gguf",
+    "source_name": "qwen3-c1-r8.gguf",
+    "sha256": "0712cf03f1716af6da8ba977e0f2a80c660836a867406a5d8c2f49fa7e2348a0",
+    "bytes": 17459872,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-1.7b-light-1.0.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-1.7b",
+    "hf": "Qwen/Qwen3-1.7B",
+    "file": "Qwen3-1.7B-Q4_K_M.gguf",
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+    "bytes": 1107409472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 8,
+    "lora_alpha": 16.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "883d2b765860d63b8af296c6183f0b564de8828541ad9529dcf9f7e18d4d9c7e",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "c1-edits",
+    "training_set_sha256": "a12f50c7e68c047947300274dfd4e835cd755cb4aa13e42d64e844741fd8d77f",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-c1-r8",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-22T13:06:16",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 3.0,
+     "rank": 8.0,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "epochs=3": true,
+     "iters": 1059,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "keyword gate, 1,479 examples, bar 98% (finetune/keygate.py), and the 8 bench meetings, run 70",
+    "passed": true,
+    "scores": {
+     "keygate_examples_all_keywords": 0.999,
+     "keywords_kept": 0.9998,
+     "keygate_length_ratio": 0.897,
+     "meetings_key_moments": 1.0,
+     "meetings_facts": "0.99-1.00",
+     "meetings_length_ratio": "0.85-0.93"
+    },
+    "measured": "2026-11-22",
+    "result_file": "bench/results/keygate-win-gpu-qwen3-1.7b+c1r8.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-0.6b-medium",
+   "task": "medium",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-0.6b-medium-1.0.0.gguf",
+    "source_name": "qwen3-06b-m5-r8.gguf",
+    "sha256": "487366add0ed805293d8fe811ff2981455c0368932e069f432842950c05f8b34",
+    "bytes": 10119936,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-0.6b-medium-1.0.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-0.6b",
+    "hf": "Qwen/Qwen3-0.6B",
+    "file": "Qwen3-0.6B-Q4_K_M.gguf",
+    "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
+    "bytes": 396705472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 8,
+    "lora_alpha": 16.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "883d2b765860d63b8af296c6183f0b564de8828541ad9529dcf9f7e18d4d9c7e",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "m5-edits",
+    "training_set_sha256": "a0de0029923ae6c88625ca0dc3c1860051e659f0519d23831644fa510e548c70",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-06b-m5-r8",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-23T09:27:32",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 3.0,
+     "rank": 8.0,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "epochs=2": true,
+     "iters": 892,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "keyword gate, 1,479 examples, bar 98% (finetune/keygate.py), and the 8 bench meetings, run 73",
+    "passed": true,
+    "scores": {
+     "keygate_examples_all_keywords": 0.993,
+     "keywords_kept": 0.9978,
+     "keygate_length_ratio": 0.816,
+     "meetings_key_moments": "0.97-0.99",
+     "meetings_facts": "0.97-1.00",
+     "meetings_length_ratio": "0.78-0.83"
+    },
+    "measured": "2026-11-23",
+    "result_file": "bench/results/keygate-win-gpu-qwen3-0.6b+m5r8.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-1.7b-medium",
+   "task": "medium",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-1.7b-medium-1.0.0.gguf",
+    "source_name": "qwen3-m5-r8.gguf",
+    "sha256": "4d0b1d7857e28c6879eecd93c1dc51f43ba8ad1c21a6d2cbbeabd47f8cb2537c",
+    "bytes": 17459872,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-1.7b-medium-1.0.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-1.7b",
+    "hf": "Qwen/Qwen3-1.7B",
+    "file": "Qwen3-1.7B-Q4_K_M.gguf",
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+    "bytes": 1107409472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 8,
+    "lora_alpha": 16.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "883d2b765860d63b8af296c6183f0b564de8828541ad9529dcf9f7e18d4d9c7e",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "m5-edits",
+    "training_set_sha256": "a0de0029923ae6c88625ca0dc3c1860051e659f0519d23831644fa510e548c70",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-m5-r8",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-23T10:01:54",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 3.0,
+     "rank": 8.0,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "epochs=2": true,
+     "iters": 892,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "keyword gate, 1,479 examples, bar 98% (finetune/keygate.py), and the 8 bench meetings, run 73",
+    "passed": true,
+    "scores": {
+     "keygate_examples_all_keywords": 0.99,
+     "keywords_kept": 0.997,
+     "keygate_length_ratio": 0.812,
+     "meetings_key_moments": "0.97-0.99",
+     "meetings_facts": "0.95-1.00",
+     "meetings_length_ratio": "0.78-0.83"
+    },
+    "measured": "2026-11-23",
+    "result_file": "bench/results/keygate-win-gpu-qwen3-1.7b+m5r8.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-0.6b-high",
+   "task": "high",
+   "version": "0.1.0",
+   "status": "experimental",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-0.6b-high-0.1.0.gguf",
+    "source_name": "qwen3-06b-h4-edits.gguf",
+    "sha256": "1e9f917f24b65edbb753a70e7455b504698f42f29dd4c4521e06392a6cc2585d",
+    "bytes": 20212512,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-0.6b-high-0.1.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-0.6b",
+    "hf": "Qwen/Qwen3-0.6B",
+    "file": "Qwen3-0.6B-Q4_K_M.gguf",
+    "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
+    "bytes": 396705472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 16,
+    "lora_alpha": 32.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "883d2b765860d63b8af296c6183f0b564de8828541ad9529dcf9f7e18d4d9c7e",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "h4-edits",
+    "training_set_sha256": "d93377bce997a130fa2be521cc8856edc236280461b06b4a8518fb88fff675a9",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-06b-h4-edits",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-17T14:26:49",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 2.0,
+     "rank": 16,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "iters": 880,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "high gate (bench/high_gate.py): cut 35% overall and 40% on long turns, 97% of names and numbers, judged 95% supported and at most 2% invented, runs 46 and 47",
+    "passed": false,
+    "scores": {
+     "cut_all_meetings": 0.407,
+     "names_and_numbers": 0.975,
+     "meetings_at_size_bar": "6 of 8",
+     "meetings_at_facts_bar": "5 of 8",
+     "statements_supported_2_meetings": 0.953,
+     "invented": 0.0
+    },
+    "measured": "2026-11-21",
+    "result_file": "bench/results/compress/win-gpu-high.highgate.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-1.7b-high",
+   "task": "high",
+   "version": "0.1.0",
+   "status": "experimental",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-1.7b-high-0.1.0.gguf",
+    "source_name": "qwen3-h4-edits.gguf",
+    "sha256": "5c0340e6c56c6b252ca640a2ac2d6b0993ee20771306d35b6071da4bac8965fa",
+    "bytes": 34892448,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-1.7b-high-0.1.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-1.7b",
+    "hf": "Qwen/Qwen3-1.7B",
+    "file": "Qwen3-1.7B-Q4_K_M.gguf",
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+    "bytes": 1107409472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 16,
+    "lora_alpha": 32.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "883d2b765860d63b8af296c6183f0b564de8828541ad9529dcf9f7e18d4d9c7e",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "h4-edits",
+    "training_set_sha256": "d93377bce997a130fa2be521cc8856edc236280461b06b4a8518fb88fff675a9",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-h4-edits",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-17T14:53:30",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 2.0,
+     "rank": 16,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "iters": 880,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "high gate (bench/high_gate.py): cut 35% overall and 40% on long turns, 97% of names and numbers, judged 95% supported and at most 2% invented, runs 46 and 47",
+    "passed": false,
+    "scores": {
+     "cut_all_meetings": 0.413,
+     "names_and_numbers": 0.973,
+     "meetings_at_size_bar": "6 of 8",
+     "meetings_at_facts_bar": "4 of 8",
+     "statements_supported_2_meetings": 0.972,
+     "invented": 0.0
+    },
+    "measured": "2026-11-21",
+    "result_file": "bench/results/compress/win-gpu-high.highgate.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "minicpm5-2b-summary",
+   "task": "summary",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "minicpm5-2b-summary-1.0.0.gguf",
+    "source_name": "minicpm5-2b-mo1.gguf",
+    "sha256": "9b2d02bf7e769d70427b3680aad52e001f70af1459ca8444d8cdae5c443adfd0",
+    "bytes": 50274144,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/minicpm5-2b-summary-1.0.0.gguf"
+   },
+   "base": {
+    "name": "minicpm5-2b",
+    "hf": "openbmb/MiniCPM5-2B",
+    "file": "MiniCPM5-2B-Q4_K_M.gguf",
+    "sha256": "ec2d5801640099e97d8d7e8003ad4d81f336e757811f03a26173dddf386602fd",
+    "bytes": 1561318368,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 16,
+    "lora_alpha": 32.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "5fd4d87ba7ca5cf4e7fcf17b02a723d0e6317bb84c90dffe47067d4d53f88269,75fa9f760d781d688ab14692c4bc2a14f6578c015c80734e5b3fbbd1c2149f1c",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "o1",
+    "training_set_sha256": "babac76fc76b342cf285a79a41ebc53a99ead815990193c51963340d17c4954c",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "minicpm5-2b-o1",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-17T13:52:03",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 2.0,
+     "rank": 16,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 8192.0,
+     "seed": 0,
+     "eval-every": 134.0,
+     "iters": 1068,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "blind judges check every statement of the notes against the transcript (rubric bench/JUDGE.md), runs 43, 57, 64, 66 and 69",
+    "passed": true,
+    "scores": {
+     "statements_correct_release_configuration_8_meetings": 0.849,
+     "statements_correct_raw_input_one_pass_long_meetings": 0.789,
+     "statements_correct_raw_input_in_parts_long_meetings": 0.669,
+     "wrong_speakers_per_100": 3.0,
+     "invented_actions": "6 in 8 meetings"
+    },
+    "measured": "2026-11-22",
+    "result_file": "bench/results/summary/win-gpu-mo1-rel.judge.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-0.6b-dictation",
+   "task": "dictation",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-0.6b-dictation-1.0.0.gguf",
+    "source_name": "qwen3-06b-d1-t1.gguf",
+    "sha256": "0227045912aff399888a8970cc9308373ad307bc3bd5afa0d7da85e8195ff1f2",
+    "bytes": 20212480,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-0.6b-dictation-1.0.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-0.6b",
+    "hf": "Qwen/Qwen3-0.6B",
+    "file": "Qwen3-0.6B-Q4_K_M.gguf",
+    "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
+    "bytes": 396705472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 16,
+    "lora_alpha": 32.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "b611dc39e6eddf33f3eddeda20767bf95b9e898fce274e18ee5888c111e53260,be92ceeb6f7144599cc5f7920a105133443a028fb1bccc6629bcb97a77c5faa3",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "d1",
+    "training_set_sha256": "48586609b2a441736d8c2df51407dc81adf379d13298f4581951cac3d5b0d703",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-06b-d1-t1",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-16T01:08:08",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 2.0,
+     "rank": 16,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "iters": 2128,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "tidy gate, 32 phrases (zerds-bench tidy --rules --phrases bench/tidy_phrases.json), run 5",
+    "passed": true,
+    "scores": {
+     "phrases_exact": "26 of 32"
+    },
+    "measured": "2026-11-16",
+    "result_file": "bench/results/tidy-win-cpu-d1-t1-06b.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  },
+  {
+   "name": "qwen3-1.7b-dictation",
+   "task": "dictation",
+   "version": "1.0.0",
+   "status": "stable",
+   "replaces": null,
+   "release_tag": "hyper-tuned-v1.0.0",
+   "release_date": "2026-11-23",
+   "file": {
+    "name": "qwen3-1.7b-dictation-1.0.0.gguf",
+    "source_name": "qwen3-d1-t1.gguf",
+    "sha256": "56a2e6fb555723578131e0e3f07aff8ba878608c7fbeef02986ab8004c942713",
+    "bytes": 34892448,
+    "url": "https://github.com/uhstray-io/zerds-public/releases/download/hyper-tuned-v1.0.0/qwen3-1.7b-dictation-1.0.0.gguf"
+   },
+   "base": {
+    "name": "qwen3-1.7b",
+    "hf": "Qwen/Qwen3-1.7B",
+    "file": "Qwen3-1.7B-Q4_K_M.gguf",
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+    "bytes": 1107409472,
+    "quantisation": "Q4_K_M"
+   },
+   "runtime": {
+    "llama_cpp_tag": "b10200",
+    "llama_cpp_commit": "5f55650a78f92aff4d48d671423e888fac0469ff",
+    "adapter_format": "gguf-lora",
+    "adapter_dtype": "f16",
+    "lora_rank": 16,
+    "lora_alpha": 32.0,
+    "min_app_version": "set by the app"
+   },
+   "prompt": {
+    "template": "<|im_start|>system\n{{SYSTEM}}<|im_end|>\n<|im_start|>user\n{{USER}}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "template_sha256": "0f3aff4887bcda36f3701655af1a57cd89ff8df766e92b85d11af8c953a8e112",
+    "system_prompt_sha256": "b611dc39e6eddf33f3eddeda20767bf95b9e898fce274e18ee5888c111e53260,be92ceeb6f7144599cc5f7920a105133443a028fb1bccc6629bcb97a77c5faa3",
+    "bos": false,
+    "end": "<|im_end|>"
+   },
+   "provenance": {
+    "training_set": "d1",
+    "training_set_sha256": "48586609b2a441736d8c2df51407dc81adf379d13298f4581951cac3d5b0d703",
+    "repository": "uhstray-io/zerds-hyper-tuning (private)",
+    "commit": "2431a87f13d61b4344245fb79e4dfbaf5a23c06a",
+    "run": "qwen3-d1-t1",
+    "trainer": "train_torch.py",
+    "trainer_version": "torch 2.11.0+cu128, cuda",
+    "trained": "2026-11-21T19:59:59",
+    "settings": {
+     "lr": 0.0002,
+     "epochs": 2.0,
+     "rank": 16,
+     "scale": 2.0,
+     "dropout": 0.0,
+     "accumulate": 4,
+     "max-seq": 6144,
+     "seed": 0,
+     "iters": 2128,
+     "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+     ]
+    }
+   },
+   "quality": {
+    "gate": "tidy gate, 32 phrases (zerds-bench tidy --rules --phrases bench/tidy_phrases.json), run 52",
+    "passed": true,
+    "scores": {
+     "phrases_exact": "26 of 32",
+     "p50_ms": 165
+    },
+    "measured": "2026-11-21",
+    "result_file": "bench/results/tidy-win-gpu-d1t1-17b.json"
+   },
+   "legal": {
+    "licence": "LicenseRef-Uhstray-Hyper-Tuned-Adapter-1.0",
+    "base_licence": "Apache-2.0",
+    "attribution": "Trained in part on text derived from the AMI Meeting Corpus and the ICSI Meeting Corpus, both CC BY 4.0; changes were made. Full notice: models/hyper-tuned/NOTICE."
+   }
+  }
+ ],
+ "releases": [
+  {
+   "version": "1.0.0",
+   "tag": "hyper-tuned-v1.0.0",
+   "date": "2026-11-23",
+   "adapters": [
+    "qwen3-0.6b-light@1.0.0",
+    "qwen3-1.7b-light@1.0.0",
+    "qwen3-0.6b-medium@1.0.0",
+    "qwen3-1.7b-medium@1.0.0",
+    "qwen3-0.6b-high@0.1.0",
+    "qwen3-1.7b-high@0.1.0",
+    "minicpm5-2b-summary@1.0.0",
+    "qwen3-0.6b-dictation@1.0.0",
+    "qwen3-1.7b-dictation@1.0.0"
+   ],
+   "changelog": "First release. Light and medium cleanup (stable, half-size files) on Qwen3 0.6B and 1.7B; high cleanup as experimental (to be used only with the app's name-and-number fallback); summary on MiniCPM5-2B; dictation on both Qwen3 bases."
+  }
+ ]
+}

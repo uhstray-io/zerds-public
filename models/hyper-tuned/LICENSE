@@ -1,0 +1,58 @@
+# Uhstray Hyper Tuned Adapter License, version 1.0
+
+Copyright (c) 2026 Uhstray.io LLC ("Uhstray"). All rights reserved.
+
+This license covers the Hyper Tuned adapter files (the "Adapters"): the LoRA
+weight files published by Uhstray for the Zerds application, their manifest
+and their model cards. It does not cover the base models the Adapters are
+loaded onto, which have their own licenses (see `NOTICE`).
+
+## 1. What you may do
+
+You may download the Adapters and run them, on your own devices, **only as
+part of an application that Uhstray owns and distributes** (such as Zerds), in
+the way that application uses them.
+
+## 2. What you may not do
+
+Unless Uhstray has agreed in writing, you may not:
+
+1. use the Adapters in or with any application, service or product that is
+   not owned and distributed by Uhstray;
+2. copy, redistribute, publish, sell, rent, sublicense or host the Adapters,
+   in whole or in part;
+3. modify the Adapters, merge them into other model weights, or continue
+   training from them;
+4. use the Adapters or their outputs to train, tune or evaluate another model
+   for the purpose of reproducing what the Adapters do;
+5. remove this license or the notices that come with the Adapters.
+
+## 3. Ownership
+
+The Adapters are licensed, not sold. Uhstray keeps all rights in them that
+this license does not expressly give you. Text you produce by running the
+Adapters inside a Uhstray application is yours.
+
+## 4. Third-party material
+
+The Adapters were trained with material from third parties under licenses
+that require credit. That credit is in `NOTICE`, which is part of this
+license. The base models are distributed under the Apache License 2.0 by
+their own authors.
+
+## 5. Ending
+
+This license ends automatically if you break it. When it ends you must stop
+using the Adapters and delete your copies, apart from copies inside a Uhstray
+application you are still entitled to use.
+
+## 6. No warranty, limited liability
+
+The Adapters are provided "as is", without warranty of any kind, express or
+implied, including fitness for a particular purpose and accuracy of output. To
+the extent the law allows, Uhstray is not liable for any damages arising from
+the use of the Adapters.
+
+## 7. Contact
+
+Requests for any other use: ask@uhstray.io.
