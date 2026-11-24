@@ -1,0 +1,27 @@
+Base language models for Zerds (GGUF, Q4_K_M)
+=============================================
+
+These files are unmodified copies of models published by their authors under
+the Apache License, Version 2.0. See the accompanying LICENSE file.
+
+Qwen3 0.6B
+  File:           Qwen3-0.6B-Q4_K_M.gguf
+  Original model: https://huggingface.co/Qwen/Qwen3-0.6B
+  GGUF taken from: https://huggingface.co/unsloth/Qwen3-0.6B-GGUF
+
+Qwen3 1.7B
+  File:           Qwen3-1.7B-Q4_K_M.gguf
+  Original model: https://huggingface.co/Qwen/Qwen3-1.7B
+  GGUF taken from: https://huggingface.co/unsloth/Qwen3-1.7B-GGUF
+
+MiniCPM5-2B
+  File:           MiniCPM5-2B-Q4_K_M.gguf
+  Original model: https://huggingface.co/openbmb/MiniCPM5-2B
+  GGUF taken from: https://huggingface.co/openbmb/MiniCPM5-2B-GGUF
+
+Qwen3 is by Alibaba Cloud (the Qwen team); its GGUF files here were
+quantised by Unsloth. MiniCPM5 is by OpenBMB, which also published its GGUF.
+
+The names and links above are kept as the notice of origin. This mirror is
+not affiliated with, sponsored by, or endorsed by the models' authors.
+No changes were made to the files.
